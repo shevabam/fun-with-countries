@@ -86,8 +86,8 @@ body {
     font-size: 0.9em;
     outline: none;
     border-radius: 0.3em;
-    background-color: transparent;
-    border: 1px solid #a0a0a0;
+    background-color: #141c2a;
+    border: none;
     color: #fff;
     padding: 0.7em;
     width: 100%;
