@@ -23,7 +23,20 @@ html, body {
 body {
     /* height: 100vh; */
     /* background-image: linear-gradient(to right top, #252530, #333b4c, #3e5469, #466f84, #4d8b9d); */
-    background-image: linear-gradient(to right top, #252530, #2d4d66, #007c93, #00ada8, #65dca2);
+/*    background-image: linear-gradient(to right top, #252530, #2d4d66, #007c93, #00ada8, #65dca2);*/
+    background-image: linear-gradient(
+      45deg,
+      hsl(214deg 54% 30%) 0%,
+      hsl(205deg 61% 32%) 7%,
+      hsl(199deg 58% 35%) 15%,
+      hsl(195deg 47% 41%) 26%,
+      hsl(190deg 35% 47%) 39%,
+      hsl(183deg 28% 53%) 53%,
+      hsl(173deg 28% 61%) 67%,
+      hsl(161deg 29% 71%) 80%,
+      hsl(144deg 31% 80%) 91%,
+      hsl(117deg 38% 89%) 100%
+    );
     scrollbar-color: var(--secondary-color) var(--scrollbar-color);
 }
 ::-webkit-scrollbar {
@@ -127,6 +140,29 @@ body {
     text-align: center;
     color: rgba(255,255,255,0.3);
 }
+
+#disclaimer .social-links {
+    margin-bottom: 1rem;
+}
+#disclaimer .social-links li {
+    display: inline-block;
+    margin-right: 1.6rem;
+}
+#disclaimer .social-links li:last-child {
+    margin-right: 0;
+}
+#disclaimer .social-icon svg {
+    width: 48px;
+    height: 48px;
+}
+#disclaimer .social-icon path {
+    transition: fill 300ms ease-in-out;
+}
+#disclaimer .social-icon:hover path {
+    fill: var(--secondary-color);
+    transition: fill 300ms ease-in-out;
+}
+
 #result .info {
     margin-top: 1.2em;
     margin-bottom: 1.2em;
@@ -205,5 +241,12 @@ body {
     }
     #result .flag {
         max-width: 80%;
+    }
+    #disclaimer .social-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    #disclaimer .social-links li {
+        margin-right: 1rem;
     }
 }
