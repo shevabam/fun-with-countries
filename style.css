@@ -22,8 +22,6 @@ html, body {
 }
 body {
     /* height: 100vh; */
-    /* background-image: linear-gradient(to right top, #252530, #333b4c, #3e5469, #466f84, #4d8b9d); */
-/*    background-image: linear-gradient(to right top, #252530, #2d4d66, #007c93, #00ada8, #65dca2);*/
     background-image: linear-gradient(
       45deg,
       hsl(214deg 54% 30%) 0%,
@@ -200,13 +198,14 @@ body {
     border-radius: 0.3em;
 }
 
+
 .loader-wrapper {
     text-align: center;
 }
 .loader {
     width: 24px;
     height: 24px;
-    border: 3px solid #FFF;
+    border: 3px solid var(--secondary-color);
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

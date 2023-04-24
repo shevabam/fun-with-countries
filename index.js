@@ -1,5 +1,4 @@
 
-let searchBtn = document.getElementById("search-btn");
 let searchInput = document.getElementById('country-name');
 let countries_list = document.querySelector('.list-countries');
 let base_api_url = `https://restcountries.com/v3.1`;
@@ -65,52 +64,58 @@ let getCountry = (cca3) => {
 
                 let country = data;
 
-                let details = '';
-                
-                if ('currencies' in country && Object.values(country.currencies).length > 0) {
-                    let currency = Object.values(country.currencies)[0];
-
-                    details += `
-                        <li><span class="label">Currency: </span><span>${currency.name} (${currency.symbol})</span></li>
-                    `;
-                }
-
-                if ('capital' in country && country.capital != '') {
-                    details += `
-                        <li><span class="label">Capital: </span><span>${country.capital}</span></li>
-                    `;
-                }
-
-                if ('population' in country && country.population != '') {
-                    details += `
-                        <li><span class="label">Population: </span><span>${new Intl.NumberFormat().format(country.population)}</span></li>
-                    `;
-                }
-
-                result.innerHTML = `
-                <div class="info">
-                    <img src="${country.flags.png}" class="flag" title="${country.flags.alt}">
-                    <div>
-                        <h2>${country.name.common}</h2>
-                        <div class="official-name">
-                            ${country.cca3} - ${country.name.official}
-                        </div>
-                    </div>
-                </div>
-                
-                <ul class="details">${details}</ul>
-
-                <div class="map">
-                    🗺️ <a href="${country.maps.googleMaps}">View in Google Maps</a>
-                </div>
-                `;
+                showCountryDetails(country);
             }
         });
     }
 
 }
 
-// searchInput.addEventListener("keypress", (e) => { if (e.key === 'Enter') filterList(); });
+
+let showCountryDetails = (country) => {
+    let result = document.getElementById("result");
+    let details = '';
+    
+    if ('currencies' in country && Object.values(country.currencies).length > 0) {
+        let currency = Object.values(country.currencies)[0];
+
+        details += `
+            <li><span class="label">Currency: </span><span>${currency.name} (${currency.symbol})</span></li>
+        `;
+    }
+
+    if ('capital' in country && country.capital != '') {
+        details += `
+            <li><span class="label">Capital: </span><span>${country.capital}</span></li>
+        `;
+    }
+
+    if ('population' in country && country.population != '') {
+        details += `
+            <li><span class="label">Population: </span><span>${new Intl.NumberFormat().format(country.population)}</span></li>
+        `;
+    }
+
+    result.innerHTML = `
+    <div class="info">
+        <img src="${country.flags.png}" class="flag" title="${country.flags.alt}">
+        <div>
+            <h2>${country.name.common}</h2>
+            <div class="official-name">
+                ${country.cca3} - ${country.name.official}
+            </div>
+        </div>
+    </div>
+    
+    <ul class="details">${details}</ul>
+
+    <div class="map">
+        🗺️ <a href="${country.maps.googleMaps}" target="_blank">View in Google Maps</a>
+    </div>
+    `;
+}
+
+
 window.addEventListener("load", getCountries);
 
 countries_list.addEventListener("click", (e) => {
